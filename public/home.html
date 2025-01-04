@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Bangers&display=swap"
+        rel="stylesheet">
+    <title>Dashboard - Star Wars</title>
+    <link rel="stylesheet" href="estilos/styles.css">
+    <link rel="shortcut icon" href="./assets/img/favicon.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <span>Bienvenide, <span id="usernameDisplay"></span></span>
+        <a href="./carrito.html">Mi Carrito</a>
+        <button id="logoutBtn">Cerrar sesión</button>
+    </header>
+    <div class="container">
+        <nav>
+            Elige tu tipo de búsqueda:
+            <ul>
+                <li><a href="characters.html">Buscar Personajes</a></li>
+                <li><a href="planets.html">Buscar Planetas</a></li>
+                <li><a href="starships.html">Buscar Naves</a></li>
+                <li><a href="vehicles.html">Buscar Vehículos</a></li>
+                <li><a href="movies.html">Películas</a></li>
+            </ul>
+        </nav>
+    </div>
+    <footer>
+        <p>May the Force be with you.</p>
+    </footer>
+    <script src="./scripts/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Bangers&display=swap"
+        rel="stylesheet">
+    <title>Buscar Planetas</title>
+    <link rel="stylesheet" href="estilos/styles.css">
+    <link rel="shortcut icon" href="./assets/img/favicon.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <span>Bienvenide, <span id="usernameDisplay"></span></span>
+        <a href="./carrito.html">Mi Carrito</a>
+        <button id="logoutBtn">Cerrar sesión</button>
+    </header>
+    <div class="container">
+        <h2>Buscar Planetas</h2>
+        <input type="text" id="planetSearch" placeholder="Buscar planeta" />
+        <button id="searchPlanetBtn">Buscar</button>
+        <button id="searchAllBtn">Buscar Todos</button>
+        <div id="planetResults"></div>
+        <div id="detailsContainer"></div>
+    </div>
+    <footer>
+        <p>May the Force be with you.</p>
+    </footer>
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>

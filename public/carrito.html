@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Bangers&display=swap"
+        rel="stylesheet">
+    <title>Tu Carrito</title>
+    <link rel="stylesheet" href="estilos/styles.css">
+    <link rel="shortcut icon" href="./assets/img/favicon.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <span>Bienvenide, <span id="usernameDisplay"></span></span>
+        <a href="./carrito.html">Mi Carrito</a>
+        <button id="logoutBtn">Cerrar sesión</button>
+    </header>
+
+    <h1>Tu Carrito</h1>
+    <section class="carrito-container">
+        <ul id="cart-items"></ul>
+        <button onclick="window.location.href='home.html'">Volver</button>
+        <button onclick="clearCart()">Vaciar Carrito</button>
+    </section>
+    <script src="./scripts/app.js"></script>
+</body>
+
+</html>
