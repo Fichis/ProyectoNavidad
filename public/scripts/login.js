@@ -1,5 +1,5 @@
-document.getElementById('loginForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
+document.getElementById('loginForm').addEventListener('submit', async (formulario) => {
+    formulario.preventDefault();
   
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -15,13 +15,15 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         // Login exitoso
         messageElement.textContent = `Login exitoso. Bienvenido, ${user.username}!`;
         messageElement.style.color = 'green';
+
+        // Generar y mostrar código aleatorio
+        const generatedCode = generateRandomCode(8);
   
         // Guardar la sesión en localStorage
-        localStorage.setItem('loggedIn', 'true'); // Indicamos que el usuario está logueado
+        localStorage.setItem('loggedIn', generatedCode); // Indicamos que el usuario está logueado pasándole el código de verificacion
         localStorage.setItem('username', user.username); // Guardamos el nombre de usuario
   
-        // Generar y mostrar código aleatorio
-        const generatedCode = generateRandomCode();
+        //Pongo visible la sección de verificación
         document.getElementById('generatedCode').textContent = generatedCode;
         document.getElementById('verificationSection').style.display = 'block';
   
@@ -38,27 +40,28 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     }
   });
   
-  // Función para generar un código aleatorio de 4 caracteres
-  function generateRandomCode() {
+  //* Función para generar un código aleatorio de la longitud que le indiques
+  function generateRandomCode(longitud) {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let code = '';
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < longitud; i++) {
       code += chars.charAt(Math.floor(Math.random() * chars.length));
     }
     return code;
   }
   
-  // Manejar la validación del código generado
+  //* Manejar la validación del código generado
   function handleCodeVerification(generatedCode) {
     const verifyButton = document.getElementById('verifyButton');
     verifyButton.addEventListener('click', () => {
       const userCode = document.getElementById('verificationCode').value;
   
       if (userCode === generatedCode) {
+        //TODO Cambiar por modal con settimeout 3s ~
         alert('¡Código correcto! Redirigiendo...');
-        window.location.href = 'home.html'; // Redirigir a la página deseada
+        window.location.href = 'home.html'; // Redirigir a la pagina principal
       } else {
-        alert('Código incorrecto. Inténtalo de nuevo.');
+        alert('Código incorrecto. Inténtalo de nuevo.'); // Si no es el mismo, vuelve a intentarlo
       }
     });
   }
