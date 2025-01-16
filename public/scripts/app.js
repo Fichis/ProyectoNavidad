@@ -1,4 +1,4 @@
-import {getImageByName} from "./utils.js";
+import {getImageByName, fetchSaveArray} from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   // Comprobamos si el usuario está logueado
@@ -18,20 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "index.html";
   });
 
-  // Función para hacer fetch a la URL y guardar datos en un array
-  async function fetchSaveArray(url) {
-    try {
-      let anArray = [];
-      const response = await fetch(url);
-      const data = await response.json();
-      anArray = data.result;
-      /* console.log(anArray); */
-      return anArray;
-    } catch (error) {
-      console.error("Error al obtener los datos:", error);
-    }
-  }
-
+  
   // Generar películas
   if (document.getElementById("moviesContainer")) {
     // Usamos una función asíncrona para esperar a que se resuelva la promesa
@@ -117,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
       modalVehicles.innerHTML = "";
 
       // Función para agregar un retraso en la ejecución
-      const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+      const delay = (ms) => new Promise((result) => setTimeout(result, ms));
 
       // Función principal para hacer las solicitudes
       async function fetchFromArray(urls, responseContainer) {
@@ -141,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
 
-      // Agregar personajes
+      // Agregar personajes a las peliculas
       const charactersData = movie.properties.characters;
       /* console.log(charactersData); */
       if (charactersData) {

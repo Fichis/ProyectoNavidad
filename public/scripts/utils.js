@@ -267,4 +267,18 @@ async function fetchAllWithUrl(url, resultContainer, endpoint) {
     return images[name] || "./assets/img/fondo.jpg";
   }
 
-export { fetchData, fetchAll, getImageByName };
+  // Función para hacer fetch a la URL y guardar datos en un array
+  async function fetchSaveArray(url) {
+    try {
+      let anArray = [];
+      const response = await fetch(url);
+      const data = await response.json();
+      anArray = data.result;
+      /* console.log(anArray); */
+      return anArray;
+    } catch (error) {
+      console.error("Error al obtener los datos:", error);
+    }
+  }
+
+export { fetchData, fetchAll, getImageByName, fetchSaveArray };
