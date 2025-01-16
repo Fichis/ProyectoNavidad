@@ -17,7 +17,7 @@ document.getElementById('loginForm').addEventListener('submit', async (formulari
         messageElement.style.color = 'green';
 
         // Generar y mostrar código aleatorio
-        const generatedCode = generateRandomCode(8);
+        const generatedCode = generateRandomCode(4);
   
         // Guardar la sesión en localStorage
         localStorage.setItem('loggedIn', generatedCode); // Indicamos que el usuario está logueado pasándole el código de verificacion
@@ -25,6 +25,7 @@ document.getElementById('loginForm').addEventListener('submit', async (formulari
   
         //Pongo visible la sección de verificación
         document.getElementById('generatedCode').textContent = generatedCode;
+        document.getElementById('verificationSection').style.userSelect = 'none';
         document.getElementById('verificationSection').style.display = 'block';
   
         // Manejar verificación del código
